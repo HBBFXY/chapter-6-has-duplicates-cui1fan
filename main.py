@@ -6,16 +6,32 @@ def has_duplicates(lst):
     返回: bool - 如果有重复元素返回 True，否则返回 False
     """
     # 学生实现代码区域
+ 
+    seen = set()
+    for item in lst:
+       
+        if item in seen:
+            return True
+      
+        seen.add(item)
    
+    return False
 
-# 主程序 - 测试函数
 if __name__ == "__main__":
-    # 学生需要提供测试用例
+
     test_cases = [
-        [1, 2, 3],          # 无重复
-        [1, 2, 2],          # 有重复
-        ["a", "b", "a"],    # 字符串重复
-        []                   # 空列表
+        [1, 2, 3, 4, 5],         
+        [1, 2, 3, 4, 2],          
+        ['a', 'b', 'c', 'a'],     
+        [],                      
+        [True, False, True],      
+        [1, '1', 1.0],            
+        [5, 5, 5, 5]             
     ]
+
+    print("重复元素判定测试结果：")
+    for i, test_list in enumerate(test_cases, 1):
+        result = has_duplicates(test_list)
+        print(f"测试用例 {i}: {test_list} → {result}")
     
     # 测试每个用例，编写具体测试代码
